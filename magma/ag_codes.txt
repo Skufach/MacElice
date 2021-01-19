@@ -1,0 +1,69 @@
+K<w>:=GF(7);
+P<x,y>:=PolynomialRing(K,2);
+f := x^3 + 3*x + 5 - y^2;
+C := Curve(AffineSpace(K,2),f);
+g := Genus(C);
+points := Places(C,1);
+print points;
+
+V0 := AGCode(points[3..#points ],4*points[1]);
+V_1 := AGCode(points[3..#points ],4*points[1]-points[2]);
+V0;
+V_1;
+
+
+K<z>:=GF(7);
+P<x, y>:=PolynomialRing(K,2);
+f := x^3*y + y^3*z + x*z^3;
+C := Curve(AffineSpace(K,2),f);
+g := Genus(C);
+print "g: ", g;
+points := Places(C,1);
+inf:= points [1];
+print points;
+print #points; 
+
+V0 := AGCode(points[3..#points ],4*inf);
+V_1 := AGCode(points[3..#points ], 4*inf-points[2]);
+print "V0"; 
+V0;
+print ""; print "V_1";
+V_1;
+
+
+K<w>:=GF(47);
+P<x,z>:=PolynomialRing(K,2);
+f := 9*x^4 + 37*x^2*z^2 + 8*z^4 + 26*x^3 + 32*x*z^2 + 35*x^2 + 14*z^2 + 27*x + 21;
+C := Curve(AffineSpace(K,2),f);
+g := Genus(C);
+print "g: ", g;
+points := Places(C,1);
+inf:= Places(C,2)[1];
+print inf;
+print points;
+print #points; 
+
+V0 := AGCode(points[2..#points ],5*inf);
+V_1 := AGCode(points[2..#points ], 5*inf-points[1]);
+print "V0"; 
+V0;
+print ""; print "V_1";
+V_1;
+
+
+F<w> := GF(2);
+P2<x,y,z> := ProjectiveSpace(F, 2);
+f := x^3+x^2*z+y^3+y^2*z+z^3;
+C := Curve(P2, f);
+g := Genus(C);
+g;
+
+points:= Places(C, 1);
+points;
+
+//V0 := AGCode(points[3..#points ],2*inf);
+//V_1 := AGCode(points[3..#points ], 2*inf-points[2]);
+print "V0"; 
+V0;
+print ""; print "V_1";
+V_1;
